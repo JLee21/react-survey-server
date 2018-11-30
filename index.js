@@ -7,4 +7,4 @@ app.get('/', (req, res) => {
   res.send({hi: 'there'});
 })
 
-app.listen.(PORT);
+app.listen(PORT);

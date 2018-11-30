@@ -8,7 +8,9 @@
     "npm": "6.4.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "open": "heroku open -a serene-anchorage-93685",
+    "logs": "heroku logs --tail -a serene-anchorage-93685"
   },
   "author": "Jordan Lee",
   "license": "ISC",
