@@ -9,12 +9,20 @@
   },
   "scripts": {
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "open": "heroku open -a serene-anchorage-93685",
     "logs": "heroku logs --tail -a serene-anchorage-93685"
   },
   "author": "Jordan Lee",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.14",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
   }
 }
