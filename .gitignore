@@ -2,6 +2,9 @@ dev.js
 client-id-prod.json
 client-id-dev.json
 
+.DS_Store
+build/
+
 # Logs
 logs
 *.log

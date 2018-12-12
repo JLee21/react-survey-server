@@ -3,7 +3,7 @@ import './css/sass/materialize.scss'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import middleware from './middleware'
 
 import App from './components/App';
