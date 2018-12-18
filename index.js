@@ -4,6 +4,9 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
+const expressWinston = require('express-winston');
+const winston = require('winston'); // for transports.Console
+require('./models/Survey');
 require('./models/User');
 require('./services/passport');
 
@@ -18,11 +21,21 @@ app.use(
     keys: [keys.cookieKey]
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(expressWinston.logger({
+//   transports: [
+//     new winston.transports.Console()
+//   ],
+//   format: winston.format.combine(
+//     winston.format.colorize(),
+//     winston.format.json()
+//   )
+// }));
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
