@@ -4,10 +4,8 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
-const expressWinston = require('express-winston');
-const winston = require('winston'); // for transports.Console
-require('./models/Survey');
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
@@ -21,17 +19,8 @@ app.use(
     keys: [keys.cookieKey]
   })
 );
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(expressWinston.logger({
-//   transports: [
-//     new winston.transports.Console()
-//   ],
-//   format: winston.format.combine(
-//     winston.format.colorize(),
-//     winston.format.json()
-//   )
-// }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
