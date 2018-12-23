@@ -11,11 +11,12 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
     "open": "heroku open -a serene-anchorage-93685",
     "logs": "heroku logs --tail -a serene-anchorage-93685",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "clean": "rm -rf node_modules && rm -rf client/node_modules && npm install && npm install --prefix client "
+    "clean": "rm -rf node_modules && rm -rf client/node_modules && npm install && npm install --prefix client ",
+    "webhook": "./sendgrid_webhook.sh"
   },
   "author": "Jordan Lee",
   "license": "ISC",
@@ -25,10 +26,12 @@
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.4",
     "express-winston": "^3.0.1",
+    "lodash": "^4.17.11",
     "mongoose": "^5.3.14",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "path-parser": "^4.2.0",
     "sendgrid": "^5.2.3",
     "stripe": "^6.19.0",
     "winston": "^3.1.0"
